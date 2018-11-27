@@ -2,6 +2,8 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 <div class="container-fluid" id="top">
     <div class="row front-page">
         <div class="col-md-12">
@@ -12,9 +14,9 @@
                 {{ message }}
             </div>
             {% endfor %}
-            <h1>Twosense</h1>
+            <h1>Auto Blog!</h1>
             <div class="scroll">
-                <a class="js-scroll-trigger" href="#blogs-content"><span class="text">Start</span></a>
+<a class="js-scroll-trigger" href="#blogs-content"><span class="btn btn-secondary">Start</span></a>
             </div>
         </div>
     </div>
