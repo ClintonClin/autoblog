@@ -3,12 +3,13 @@
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cstyle.css')}}">
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}">
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
 <div class="container-fluid" id="top">
     <div class="row front-page">
         <div class="col-md-12">
@@ -19,9 +20,14 @@
                 {{ message }}
             </div>
             {% endfor %}
+            <br>
+
             <h1 class='header'>Auto Blog</h1>
+            <br>
+            <br>
+            <br>
             <div class="scroll">
-<a class="js-scroll-trigger" href="#blogs-content"><span class="btn btn-secondary">Proceed</span></a>
+                <a class="js-scroll-trigger" href="#blogs-content"><button class="btn btn-primary">Proceed</button></a>
             </div>
         </div>
     </div>
@@ -30,10 +36,16 @@
     <div class="row blogs" id="blogs-content">
         <div class="col-md-12 blogs-title">
             <h1>{{blog_message}}</h1>
-            <h1>Blogs</h1>
+            <br>
+            <br>
+            <br>
+            <h1 class = 'bloggs'>Blogs</h1>
+            <hr width=50%>
+            <br>
+            <br>
         </div>
         {% for blog in all_blogs %}
-        <div class="col-md-3 blogs-snippet">
+        <div class="col-md-3 blogs-snippet" id = 'poster'>
             {% if blog.photo_url %}
             <a href="{{url_for('main.blog',id=blog.id)}}">
                 <img src="{{blog.photo_url}}" alt="Loading Image" class="img-responsive">

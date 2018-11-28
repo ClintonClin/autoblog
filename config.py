@@ -6,7 +6,7 @@ class Config:
     """
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST= 'app/static/photos'  # storage location of photos
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     # mail configurations
@@ -15,6 +15,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    
 
     # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
@@ -27,7 +28,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configration class with General configuration settings
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
 
 class DevConfig(Config):
     """
@@ -35,7 +36,7 @@ class DevConfig(Config):
     Args:
          Config: The parent configuration class with General configuration settings
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
     DEBUG = True
 
 # Dictionary that helps us access the different configuration option classes
