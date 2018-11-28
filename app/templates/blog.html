@@ -14,9 +14,7 @@
             {% endfor %}
             <h2> {{get_blog.title}} </h2>
             <p>{{get_blog.date_posted.strftime('%Y-%m-%d %H:%M')}} | {{comments_count}} comments</p>
-            {% if current_user.is_authenticated%}
-            <a href="{{url_for('main.delete_blog',id=get_blog.id)}}">Delete Blog</a>
-            {% endif %}
+            
         </div>
         <div class="col-md-12 image">
             <div class="col-md-7 blog-image">
@@ -51,9 +49,7 @@
                         <p class="mb-0"> {{comment.comment_content}} </p>
                         <footer class="blockquote-footer"> {{comment.name}} <cite title="Source Title">
                                 {{comment.date_comment.strftime('%Y-%m-%d %H:%M')}} </cite></footer>
-                        {% if current_user.is_authenticated%}
-                        <p><a href="{{url_for('main.delete_comment',id=comment.blog_id,id_comment=comment.id)}}">delete</a></p>
-                        {% endif %}
+                        
                     </blockquote>
                 </div>
                 {% endfor %}
