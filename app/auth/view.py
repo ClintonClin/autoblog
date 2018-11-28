@@ -19,7 +19,7 @@ def login():
 
         flash('Invalid username or password')
 
-    title = "Pitch login"
+    title = "Blog login"
     return render_template('auth/login.html', login_form = login_form, title=title)  # login view function that renders a template file.
 
 @auth.route('/register', methods  = ["GET", "POST"])
