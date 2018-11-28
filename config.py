@@ -6,7 +6,7 @@ class Config:
     """
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST= 'app/static/photos'  # storage location of photos
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
+    SQLALCHEMY_DATABASE_URI =os.environ.get("HEROKU_POSTGRESQL_MAROON_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     # mail configurations
@@ -28,14 +28,14 @@ class ProdConfig(Config):
     Args:
         Config: The parent configration class with General configuration settings
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_OLIVE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_MAROON_URL")
 class DevConfig(Config):
     """
     Describes development configuration child class
     Args:
          Config: The parent configuration class with General configuration settings
     """
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_MAROON_URL")
     DEBUG = True
 
 # Dictionary that helps us access the different configuration option classes
