@@ -28,8 +28,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configration class with General configuration settings
     """
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://clinton:admin@localhost/blogger'
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_OLIVE_URL")
 class DevConfig(Config):
     """
     Describes development configuration child class
